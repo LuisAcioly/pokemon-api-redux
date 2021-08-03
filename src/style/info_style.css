@@ -1,0 +1,172 @@
+.info-holder {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    flex-direction: column;
+    background-color: rgb(231, 57, 57);
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+    background-color: #ffffffff;
+    width: 55em;
+    align-self: center;
+    flex-direction: column;
+    padding-bottom: 5em;
+}
+
+.info_content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.img_holder{
+    width: 20em;
+}
+
+.img_holder img{
+    margin-top: 10vh;
+    background-color: #E8EBE9;
+    border-radius: 5px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.chart_holder {
+    width: 30em;
+    font-size: 10px;
+    text-align: left;
+    background-color: #f8f8f8;
+    margin-top: 2vh;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.chart_holder h1 {
+    margin-left: 1vw;
+}
+
+.extras {
+    /*background-color: #3787e2;*/
+    width: 30em;
+    height: 30em;
+    margin-left: 3.5vw;
+    border-radius: 10px;
+    padding: 2%;
+    font-size: 10px;
+    margin-top: 17.1vh;
+}
+
+.extras_2 {
+    /*background-color: #3787e2;*/
+    width: 30em;
+    height: 30em;
+    margin-left: 2.5vw;
+    padding: 2%;
+    font-size: 10px;
+    margin-top: 1vh;
+}
+
+.text_holder {
+    display: flex;
+    flex-direction: row;
+}
+
+.text p{
+    font-size: 25px;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.text h1{
+    font-size: 20px;
+    margin-top: 1em;
+}
+
+.text {
+    margin-right: 3vw;
+    text-align: left;
+}
+
+span {
+    margin-right: 1vw;
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+    padding-top: 2.5px;
+    padding-bottom: 2.5px;
+    font-size: 15px;
+    text-align: center;
+    border-radius: 5px;
+    color: #ffffffff;
+    margin-top: 1em;
+}
+
+.evolution_chain {
+    width: 41em;
+    height: 20em;
+    background-color: rgb(80, 80, 80);
+    margin-top: 0;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.evolution_chain:after {
+    content: "";
+    position:absolute;
+    margin-right: 41em;
+    margin-top: 20em;
+    width:40px;
+    height:40px;
+    float: left;
+    transform:rotate(45deg);
+    background-color:#fff; /* to see where it is */
+  }
+
+.content_holder{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.circle {
+    width: 7.5em;
+    height: 7.5em;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffffff;
+    margin-bottom: 1em;
+}
+
+.evolutions{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding-left: 12.4em;
+    padding-right: 12em;
+}
+
+.evolutions li {
+    width: 10em;
+    display: flex;
+    justify-content: center;
+    margin-left: 2em;
+}
+.arrow {
+    display: flex;
+    align-items: center;
+    color: rgb(194, 194, 194);
+    font-size: 50px;
+}
+
+.text_field {
+    
+}

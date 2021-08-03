@@ -5,7 +5,7 @@ const defaultState = {
 function commonRoot(state = defaultState, action) {
     // The reducer normally looks at the action type field to decide what happens
     switch (action.type) {
-    case 'SET': 
+    case 'SET':
         return {
             pokemonList: action.pokemonList,
         }
