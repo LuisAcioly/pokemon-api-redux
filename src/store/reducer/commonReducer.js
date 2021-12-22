@@ -1,5 +1,5 @@
 const defaultState = {
-    pokemonList: [],
+    page: 1,
 };
 
 function commonRoot(state = defaultState, action) {
@@ -7,7 +7,7 @@ function commonRoot(state = defaultState, action) {
     switch (action.type) {
     case 'SET':
         return {
-            pokemonList: action.pokemonList,
+            page: action.page,
         }
 
     default:

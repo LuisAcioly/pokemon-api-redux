@@ -4,7 +4,7 @@
     text-align: center;
     width: 100%;
     flex-direction: column;
-    background-color: rgb(231, 57, 57);
+    /*background-color: rgb(231, 57, 57);*/
 }
 
 .info {
@@ -142,7 +142,6 @@ span {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ffffffff;
     margin-bottom: 1em;
 }
 
@@ -160,6 +159,11 @@ span {
     justify-content: center;
     margin-left: 2em;
 }
+
+.evolutions li:hover {
+    cursor: pointer;
+}
+
 .arrow {
     display: flex;
     align-items: center;
@@ -167,6 +171,33 @@ span {
     font-size: 50px;
 }
 
-.text_field {
-    
+.title_holder {
+    width: 55em;
+    padding-top: 2em;
+    padding-left: 4em;
 }
+
+.title_holder h1 {
+    margin-right: 4em;
+    font-family: 'Roboto';
+    margin-top: 0.6em;
+}
+
+.button {
+    background-color: #6C757D;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: #38393a;
+}
+
+.load {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 5em;
+}
+
+
+

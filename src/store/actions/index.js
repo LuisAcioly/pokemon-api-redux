@@ -1,7 +1,6 @@
-export function setlist(request){    
-    
+export default function setPage(request){    
     return { 
         type: 'SET',
-        pokemonList: request,
+        page: request.page,
     }
 }

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import List from '../components/List';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'antd/dist/antd.css';
 
 class Home extends Component {
     render(){

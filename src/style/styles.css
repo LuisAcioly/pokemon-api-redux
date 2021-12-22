@@ -33,10 +33,11 @@
 .head {
     width: 100%;
     text-align: center;
+    padding-top: 2.5em;
 }
 
 .types span {
-    margin-left: 1vw;
+    margin-left: 0;
     padding-left: 7.5px;
     padding-right: 7.5px;
     padding-top: 2.5px;
@@ -45,4 +46,41 @@
     text-align: center;
     border-radius: 5px;
     color: #ffffffff;
+}
+
+.pagination {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 4em;
+}
+
+.ant-pagination-options {
+    display: none;
+}
+
+.filter {
+    width: 100%;
+    height: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2em;
+    margin-top: 3em;
+    flex-direction: row;
+}
+
+.select {
+    color: #000;
+    width: 150px;
+    margin-left: 2em;
+    margin-top: 0.25em;
+}
+
+.MuiButton-label, .MuiTouchRipple-root{
+    margin-top: 0;
+    margin-right: 0;
+    padding: 0 0 0 0;
 }

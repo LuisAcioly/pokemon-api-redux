@@ -5,9 +5,11 @@ import { Bar } from 'react-chartjs-2';
 import { useState, useEffect } from "react";
 import colors from "../services/Colors";
 import axios from 'axios';
-import { Card, Header } from 'react-bootstrap';
+import { Card, Spinner } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button'
 import { useHistory } from "react-router-dom";
 import { RiArrowRightSFill } from 'react-icons/ri';
+import { FaReply } from "react-icons/fa";
 
 const Info = () => {
     const location = useLocation();
@@ -17,6 +19,7 @@ const Info = () => {
     const [statsOptions, setStatsOption] = useState({});
     const [abilities, setAbilities] = useState([]);
     const [chain, setChain] = useState([]);
+    const [load, setLoad] = useState(true);
 
     function chartConfig() {
         const config = {
@@ -127,38 +130,28 @@ const Info = () => {
         
     }
 
-    function printEvolutions(){
-        return chain.map((pokemon, index) => (
-            <Card key={index} style={{ width: '18rem', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
-                <div className="circle">
-                    <Card.Img style={{ width: '4.5rem', backgroundColor: 'rgb(138, 138, 138)', borderRadius: '50%', padding: '1em', borderColor: '#fff', borderWidth: '5%'}} variant="top" src={chain[index].sprites.other["official-artwork"].front_default} />
-                </div>
-                <Card.Body>
-                    <Card.Title>{params.name.capitalize()} N°{pokemon.id}</Card.Title>
-                    <Card.Text>
-                            <div className="types">
-                                {pokemon.types.map((type, index) => (
-                                    <span key={index} style={{backgroundColor: colors[type.type.name]}}>{type.type.name.capitalize()}</span>
-                                ))}
-                            </div>
-                    </Card.Text>
-                </Card.Body>
-            </Card>
-        ))
-    }
-
     function pokemonInfo(item){
         console.log("it works");
+        window.scrollTo({top: 0})
         history.push(`/${item.name}`, {pokemon: item})
+    }
+
+    function goHome(){
+        history.push('/');
     }
 
     function Arrow(index){
         if(index < chain.length-1){
             return <div className="arrow"><RiArrowRightSFill/></div>
         }
+        else{
+            return <div className="arrow" style={{display: 'none'}}><RiArrowRightSFill/></div>
+        }
     }
 
+
     useEffect(() => {
+        loading()
         setChain([]);
         getEvolutionChain();
         setStatsData(chartConfig());
@@ -167,10 +160,23 @@ const Info = () => {
 
     }, [])
 
-    return (
-        <div className="info-holder">
+    function info(){
+        return (
             <div className="info">
-                <h1>{params.name.capitalize()} N°{params.id}</h1>
+                <div className="title_holder">
+                    <Button className="button" style={{
+                        height: '2em', 
+                        float: 'left', 
+                        marginTop: '2.2em', 
+                        fontFamily: 'Source Sans Pro', 
+                        borderStyle: 'none', 
+                        borderRadius: '5px',
+                        color: '#fff'
+                    }} onClick={() => goHome()} variant="secondary">
+                        <FaReply/> Back
+                    </Button>
+                    <h1>{params.name.capitalize()} N°{params.id}</h1>
+                </div>
                 <div className="content_holder">
                     <div className="info_content">
                         <div className="img_holder">
@@ -218,9 +224,9 @@ const Info = () => {
                     <ul className="evolutions">
                     {chain.map((pokemon, index) => (
                         <li key={index} onClick={() => {pokemonInfo(pokemon)}}>
-                            <Card style={{ width: '18rem', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
+                            <Card style={{ backgroundColor: 'rgb(80, 80, 80)', width: '18rem', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', borderStyle: 'none'}}>
                                 <div className="circle">
-                                    <Card.Img style={{ width: '4.5rem', backgroundColor: 'rgb(138, 138, 138)', borderRadius: '50%', padding: '1em', borderColor: '#fff', borderWidth: '5%'}} variant="top" src={pokemon.sprites.other["official-artwork"].front_default} />
+                                    <Card.Img style={{ width: '100%', backgroundColor: 'rgb(138, 138, 138)', borderRadius: '50%', padding: '1em', borderColor: '#fff'}} variant="top" src={pokemon.sprites.other["official-artwork"].front_default} />
                                 </div>
                                 <Card.Body>
                                     <Card.Title style={{ fontFamily: 'Roboto', color: '#fff', textAlign: 'center'}}>{pokemon.name.capitalize()}<span style={{marginLeft: 0, color: '#949494'}}>N°{pokemon.id}</span></Card.Title>
@@ -233,12 +239,39 @@ const Info = () => {
                                     </Card.Text>
                                 </Card.Body>
                             </Card>
-                            {Arrow(index)}
                         </li>
                     ))}
                     </ul>
                 </div>
             </div>
+        )
+    }
+
+    function loading(){
+        setTimeout(() => {
+            setLoad(false)
+        }, 1000);
+    }
+
+    function screenLoading(){
+        if(load){
+            return (
+                <div className="load">
+                    <Spinner animation="border" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </Spinner>
+                </div>
+            )
+        }else{
+            return info()
+        }
+    }
+
+    return (
+        <div className="info-holder">
+            {
+                screenLoading()
+            }
         </div>
     );
 }
