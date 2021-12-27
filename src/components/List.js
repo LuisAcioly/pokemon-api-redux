@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -352,7 +351,6 @@ const List = () => {
     );
 };
 
-=======
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from 'react';
 import axios from 'axios';
@@ -432,5 +430,4 @@ const List = () => {
     );
 };
 
->>>>>>> cefc3fa36f356e0f33d4941f6d5c0df1e5a3a6b7
 export default List;
